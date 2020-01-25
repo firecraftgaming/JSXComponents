@@ -270,8 +270,7 @@ class JSXEComponent {
   }
   setState(o) {
     this.state = o;
-    this.HTML.innerHTML = "";
-    this.HTML.appendChild(JSXE.toHTML(this.render()));
+    JSXE.render();
   }
 }
 JSXE.render = _ => {
@@ -280,8 +279,8 @@ JSXE.render = _ => {
 };
 hide(JSXE.render);
 JSXE.toHTML = e => {
-  if (!e) return;
   var c = document.createElement("div");
+  if (typeof e === "undefined") return c;
   if (e instanceof JSXEComponent) c.appendChild(JSXE.toHTML(e.render())); else if (typeof e === "string" || typeof e === "number") c.innerHTML = e; else c = e;
   if (e instanceof JSXEComponent) c.setAttribute("JSXE", e.constructor.name);
   if (e instanceof JSXEComponent) e.HTML = c;
