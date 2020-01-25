@@ -167,7 +167,6 @@ window.onload = _ => {
     var parameters = {};
     var children = [];
     args.forEach(o => {
-      console.log(o);
       if (o.endsWith("/")) {
         name = name+"/";
         o = o.substr(0, o.length-1)
@@ -244,7 +243,6 @@ window.onload = _ => {
       });
       i += 1;
     });
-    console.log(elements);
     elements.forEach((v, i) => {
       var s = script;
       fixChilds(s, elements, i);
@@ -258,7 +256,6 @@ window.onload = _ => {
   var ls = [];
   scripts.forEach(xhrParser);
   ls.forEach(v => {
-    console.log(v);
     var s = document.createElement("script");
     s.text = v;
     document.head.appendChild(s);
